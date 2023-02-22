@@ -7,15 +7,14 @@ namespace ConsoleAppAnnex1
         static void Main(string[] args)
         {
             DisplayMenu();
-
             Console.WriteLine("Would you like to perform an operation? Please answer with yes or no. :)");
-            string? choice = Console.ReadLine().ToUpper();
-            string str = string.Empty;
+            string choice = Console.ReadLine().ToUpper();
+            string str;
             while(choice.Equals("YES"))
             {
                 Console.WriteLine("Which operation would you like to perform?");
                 Console.WriteLine("Choose a, b, c, d, e or f!");
-                string? operation = Console.ReadLine().ToUpper(); 
+                string operation = Console.ReadLine().ToUpper(); 
                 switch (operation)
                 {
                     case "A": 
@@ -46,19 +45,17 @@ namespace ConsoleAppAnnex1
                     case "F":
                         Console.WriteLine("You chose F!");
                         Console.WriteLine("Please insert a string: "); str = Console.ReadLine();
-                        if(IsPalindrome(str))
-                        {
+                        if(IsPalindrome(str)) {
                             Console.WriteLine("Your string is a palindrome!");
-                        } else
-                        {
+                        } else {
                             Console.WriteLine("Your string is not a palindrome!");
                         }
                         break;
                     default: Console.WriteLine("Wrong input! Would you like to try again?"); break;
                 }
                 Console.WriteLine("Would you like to perform a new operation? Please answer with yes or no. :)");
-                operation = Console.ReadLine().ToUpper();
-                if (operation.Equals("YES")) {
+                choice = Console.ReadLine().ToUpper();
+                if (choice.Equals("YES")) {
                     DisplayMenu();
                     continue;
                 } else {
@@ -104,11 +101,9 @@ namespace ConsoleAppAnnex1
         }
         public static bool IsPalindrome(string str)
         {
-
             str = str.ToLower();
             int start = 0;
             int end = str.Length - 1;
-
             while (start < end)
             {
                 if (str[start] != str[end])
